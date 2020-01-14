@@ -1,0 +1,59 @@
+@font-face {
+    font-family: FE5Cent;
+    src: url(design/FE5Cent-Regular.otf);
+}
+
+A {
+    text-decoration: none;
+}
+
+.logo {
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 35px;
+}
+
+.description {
+    font-family: FE5Cent;
+    background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-top: 37px;
+    font-size: 24px;
+}
+
+/* .content{
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: 345px;
+    margin-right: 345px;
+    border: 3px solid transparent;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-image: -moz-linear-gradient(top, #fdbb2d 0%, #fc5c7d 100%);
+    -webkit-border-image: -webkit-linear-gradient(top, #fdbb2d 0%, #fc5c7d 100%);
+    border-image: linear-gradient(to bottom, #fdbb2d 0%, #fc5c7d 100%);
+    border-image-slice: 1;
+} */
+
+.links {
+    font-family: FE5Cent;
+    background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 27px;
+
+}
+
+.link {
+    margin-left: 47px;
+}
