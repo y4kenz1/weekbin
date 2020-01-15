@@ -1,3 +1,4 @@
+const newsBody = document.querySelector('.newsbody');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('e1abb009438d41dcb85f13e77d61ed43');
 // To query /v2/top-headlines
@@ -7,13 +8,40 @@ newsapi.v2.topHeadlines({
 //   q: 'bitcoin',
   category: 'business',
   language: 'en',
-  country: 'us'
+  country: 'us',
+  pageSize: 50
 }).then(response => {
   console.log(response);
-  /*
-    {
-      status: "ok",
-      articles: [...]
-    }
-  */
+  // postNews(response);
+  for (var i = 0; i < response.articles.length; i++) {
+    newsBody.innerHTML = '';
+    const div = document.createElement('div');
+    div.className = 'article';
+
+    const title = document.createElement('p');
+    title.textContent = response.articles[i].title.toLowerCase();
+    title.className = 'article-title';
+
+    const description = document.createElement('p');
+    description.textContent = response.articles[i].description.toLowerCase();
+    description.className = 'article-description';
+
+    const link = document.createElement('a');
+    link.textContent = 'Read more...'.toLowerCase();
+    link.setAttribute('href', response.articles[i].url);
+    link.className = 'article-link';
+
+    const line = document.createElement('hr');
+    line.className = 'article-line';
+  
+    div.appendChild(title);
+    div.appendChild(description);
+    div.appendChild(link);
+    div.appendChild(line);
+    newsBody.appendChild(div);
+    return newsBody;
+  }
 });
+
+// function postNews(response) {
+// }

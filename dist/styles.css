@@ -1,10 +1,18 @@
 @font-face {
-    font-family: FE5Cent;
-    src: url(design/FE5Cent-Regular.otf);
+    font-family: Font;
+    src: url(design/FETHEPROFESSIONAL-Regular.otf);
+}
+
+* {
+    font-family: Font;
 }
 
 A {
     text-decoration: none;
+}
+
+.newsbody {
+    font-size: 14px;
 }
 
 .logo {
@@ -18,7 +26,7 @@ A {
 }
 
 .description {
-    font-family: FE5Cent;
+    font-family: Font;
     background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -44,14 +52,25 @@ A {
 } */
 
 .links {
-    font-family: FE5Cent;
+    font-family: Font;
     background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
     font-size: 14px;
     margin-top: 27px;
+}
 
+.title {
+    font-family: Font;
+    background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+}
+
+.row {
+    margin-top: 27px;
 }
 
 .link {
