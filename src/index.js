@@ -14,34 +14,34 @@ newsapi.v2.topHeadlines({
   console.log(response);
   // postNews(response);
   for (var i = 0; i < response.articles.length; i++) {
-    newsBody.innerHTML = '';
-    const div = document.createElement('div');
-    div.className = 'article';
-
-    const title = document.createElement('p');
-    title.textContent = response.articles[i].title.toLowerCase();
-    title.className = 'article-title';
-
-    const description = document.createElement('p');
-    description.textContent = response.articles[i].description.toLowerCase();
-    description.className = 'article-description';
-
-    const link = document.createElement('a');
-    link.textContent = 'Read more...'.toLowerCase();
-    link.setAttribute('href', response.articles[i].url);
-    link.className = 'article-link';
-
-    const line = document.createElement('hr');
-    line.className = 'article-line';
-  
-    div.appendChild(title);
-    div.appendChild(description);
-    div.appendChild(link);
-    div.appendChild(line);
-    newsBody.appendChild(div);
-    return newsBody;
+    postNews(response.articles[i]);
   }
 });
 
-// function postNews(response) {
-// }
+function postNews(response) {
+  const div = document.createElement('div');
+  div.className = 'article';
+
+  const title = document.createElement('p');
+  title.textContent = response.title.toLowerCase();
+  title.className = 'article-title';
+
+  const description = document.createElement('p');
+  description.textContent = response.description.toLowerCase();
+  description.className = 'article-description';
+
+  const link = document.createElement('a');
+  link.textContent = 'Read more...'.toLowerCase();
+  link.setAttribute('href', response.url);
+  link.className = 'article-link';
+
+  const line = document.createElement('hr');
+  line.className = 'article-line';
+
+  div.appendChild(title);
+  div.appendChild(description);
+  div.appendChild(link);
+  div.appendChild(line);
+  newsBody.appendChild(div);
+  return newsBody;
+}
