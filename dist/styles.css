@@ -1,10 +1,15 @@
 @font-face {
-    font-family: Font;
+    font-family: FontPro;
     src: url(design/FETHEPROFESSIONAL-Regular.otf);
 }
 
+@font-face {
+    font-family: FontReg;
+    src: url(design/FEHero-Regular.otf);
+}
+
 * {
-    font-family: Font;
+    font-family: FontPro;
 }
 
 A {
@@ -13,6 +18,8 @@ A {
 
 .newsbody {
     font-size: 14px;
+    overflow: auto;
+    height:500px;
 }
 
 .logo {
@@ -26,13 +33,21 @@ A {
 }
 
 .description {
-    font-family: Font;
     background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
     margin-top: 37px;
     font-size: 24px;
+}
+
+.article-title {
+    font-size: 20px;
+    color: #fdbb2d;
+}
+
+.article-description {
+    
 }
 
 /* .content{
@@ -52,7 +67,6 @@ A {
 } */
 
 .links {
-    font-family: Font;
     background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -62,11 +76,8 @@ A {
 }
 
 .title {
-    font-family: Font;
-    background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 40px;
+    color: #fc5c7d;
+    font-size: 50px;
 }
 
 .row {
