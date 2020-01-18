@@ -19,7 +19,7 @@ A {
 .newsbody {
     font-size: 14px;
     overflow: auto;
-    height:500px;
+    height: 600px;
 }
 
 .logo {
@@ -32,13 +32,29 @@ A {
     margin-top: 35px;
 }
 
+.col-6 {
+    border-radius: 15px 0px 0px 15px;
+    border: 2px solid ;
+    border-right: 0px;
+    border-image-source: linear-gradient(45deg, rgb(252, 92, 125), rgb(253, 187, 45));
+    border-image-slice: 1;
+}
+
+.col-4 {
+    border-radius: 0px 15px 15px 0px;
+    border: 2px solid ;
+    border-left: 0px;
+    border-image-source: linear-gradient(-45deg, rgb(252, 92, 125), rgb(253, 187, 45));
+    border-image-slice: 1;;
+}
+
 .description {
     background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
     margin-top: 37px;
-    font-size: 24px;
+    font-size: 34px;
 }
 
 .article-title {
@@ -46,8 +62,10 @@ A {
     color: #fdbb2d;
 }
 
-.article-description {
-    
+.article-title:hover {
+    color: #fdbb2d;
+    text-decoration-color: #fc5c7d;
+    text-decoration-style: dashed;
 }
 
 /* .content{
