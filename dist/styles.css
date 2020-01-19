@@ -32,17 +32,17 @@ A {
     margin-top: 35px;
 }
 
-.col-6 {
+.col-7 {
     border-radius: 15px 0px 0px 15px;
-    border: 2px solid ;
+    border: 3px solid ;
     border-right: 0px;
     border-image-source: linear-gradient(45deg, rgb(252, 92, 125), rgb(253, 187, 45));
     border-image-slice: 1;
 }
 
-.col-4 {
+.col-3 {
     border-radius: 0px 15px 15px 0px;
-    border: 2px solid ;
+    border: 3px solid ;
     border-left: 0px;
     border-image-source: linear-gradient(-45deg, rgb(252, 92, 125), rgb(253, 187, 45));
     border-image-slice: 1;;
@@ -105,3 +105,39 @@ A {
 .link {
     margin-left: 47px;
 }
+
+.weatherbody {
+    border-radius: 15px 15px 15px 15px;
+    border: 3px solid ;
+    border-image-source: repeating-radial-gradient(#fdbb2d, #fc5c7d);
+    border-image-slice: 1;
+    text-align: center;
+}
+
+.weather-city {
+    color: #fdbb2d;
+    font-size: 35px;
+    display: block;
+    margin-top: 10px;
+}
+
+.weather-main {
+    font-size: 25px;
+    display: block;
+    margin-bottom: 10px;
+    color: #fc5c7d;
+}
+
+.weather-temp {
+    background: -webkit-linear-gradient(#fdbb2d, #fc5c7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+    margin-bottom: 0px;    
+}
+
+/* .weather-icon {
+    margin-top: 0px;
+    width: 20%;
+    height: auto;
+} */
