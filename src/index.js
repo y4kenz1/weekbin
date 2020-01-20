@@ -7,9 +7,9 @@ const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
 newsapi.v2.topHeadlines({
   category: 'business',
-  language: 'en',
+  language: 'en, uk',
   country: 'us',
-  pageSize: 50
+  // pageSize: 50
 }).then(response => {
   console.log(response);
   for (let i = 0; i < response.articles.length; i++) {

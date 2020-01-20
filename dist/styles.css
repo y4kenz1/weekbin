@@ -16,6 +16,12 @@ A {
     text-decoration: none;
 }
 
+.titleimg {
+    width: 50px;
+    display:inline-block;
+    vertical-align:middle;
+}
+
 .newsbody {
     font-size: 14px;
     overflow: auto;
@@ -34,24 +40,25 @@ A {
 
 .col-7 {
     border-radius: 15px 0px 0px 15px;
-    border: 3px solid ;
-    border-right: 0px;
-    border-image-source: linear-gradient(45deg, rgb(252, 92, 125), rgb(253, 187, 45));
-    border-image-slice: 1;
+    border: 3px solid #333F63;
+    /* border-right: 0px; */
+    /* border-image-source: linear-gradient(45deg, rgb(113, 92, 140), rgb(51, 63, 99));
+    border-image-slice: 1; */
 }
 
 .col-3 {
     border-radius: 0px 15px 15px 0px;
-    border: 3px solid ;
+    border: 3px solid #333F63;
     border-left: 0px;
-    border-image-source: linear-gradient(-45deg, rgb(252, 92, 125), rgb(253, 187, 45));
-    border-image-slice: 1;;
+    /* border-image-source: linear-gradient(-45deg, rgb(113, 92, 140), rgb(51, 63, 99));
+    border-image-slice: 1;; */
 }
 
 .description {
-    background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
+    /* background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    color: #333F63;
     text-align: center;
     margin-top: 37px;
     font-size: 34px;
@@ -59,13 +66,17 @@ A {
 
 .article-title {
     font-size: 20px;
-    color: #fdbb2d;
+    color: #333F63;
 }
 
 .article-title:hover {
-    color: #fdbb2d;
-    text-decoration-color: #fc5c7d;
+    color: #715C8C;
+    text-decoration-color: #333F63;
     text-decoration-style: dashed;
+}
+
+.article-description {
+    color: #838BC2;    
 }
 
 /* .content{
@@ -84,18 +95,22 @@ A {
     border-image-slice: 1;
 } */
 
-.links {
+/* .links {
     background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
     font-size: 14px;
     margin-top: 27px;
-}
+} */
 
 .title {
-    color: #fc5c7d;
+    color: #715C8C;
     font-size: 50px;
+    line-height:1.1;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left: 5px;
 }
 
 .row {
@@ -108,14 +123,14 @@ A {
 
 .weatherbody {
     border-radius: 15px 15px 15px 15px;
-    border: 3px solid ;
-    border-image-source: repeating-radial-gradient(#fdbb2d, #fc5c7d);
-    border-image-slice: 1;
+    border: 3px solid #333F63;
+    /* border-image-source: repeating-radial-gradient(#715C8C, #333F63);
+    border-image-slice: 1; */
     text-align: center;
 }
 
 .weather-city {
-    color: #fdbb2d;
+    color: #333F63;
     font-size: 35px;
     display: block;
     margin-top: 10px;
@@ -125,13 +140,14 @@ A {
     font-size: 25px;
     display: block;
     margin-bottom: 10px;
-    color: #fc5c7d;
+    color: #838BC2;
 }
 
 .weather-temp {
-    background: -webkit-linear-gradient(#fdbb2d, #fc5c7d);
+    /* background: -webkit-linear-gradient(#fdbb2d, #fc5c7d);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+    color: #715C8C;
     font-size: 40px;
     margin-bottom: 0px;    
 }
