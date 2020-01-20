@@ -20,6 +20,19 @@ A {
     width: 50px;
     display:inline-block;
     vertical-align:middle;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title {
+    color: #715C8C;
+    font-size: 50px;
+    line-height:1.1;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .newsbody {
@@ -104,15 +117,6 @@ A {
     margin-top: 27px;
 } */
 
-.title {
-    color: #715C8C;
-    font-size: 50px;
-    line-height:1.1;
-    display:inline-block;
-    vertical-align:middle;
-    margin-left: 5px;
-}
-
 .row {
     margin-top: 27px;
 }
@@ -121,7 +125,19 @@ A {
     margin-left: 47px;
 }
 
-.weatherbody {
+.currency-main {
+    color: #333F63;
+    font-size: 40px;
+    margin-bottom: 0px;   
+}
+
+.currency-rate {
+    color: #838BC2;
+    font-size: 25px;
+    display: block;        
+}
+
+.weatherbody, .currencybody {
     border-radius: 15px 15px 15px 15px;
     border: 3px solid #333F63;
     /* border-image-source: repeating-radial-gradient(#715C8C, #333F63);
@@ -157,3 +173,9 @@ A {
     width: 20%;
     height: auto;
 } */
+
+.loading-n, .loading-w, .loading-c {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

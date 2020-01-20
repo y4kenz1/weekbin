@@ -1,3 +1,7 @@
+const loadingN = document.querySelector('.loading-n');
+const loadingW = document.querySelector('.loading-w');
+const loadingC = document.querySelector('.loading-c');
+
 const newsBody = document.querySelector('.newsbody');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('e1abb009438d41dcb85f13e77d61ed43');
@@ -5,13 +9,17 @@ const newsapi = new NewsAPI('e1abb009438d41dcb85f13e77d61ed43');
 const weatherBody = document.querySelector('.weatherbody');
 const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
+const currencyBody = document.querySelector('.currencybody');
+const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,AUD,CAD,PLN,MXN';
+
 newsapi.v2.topHeadlines({
   category: 'business',
   language: 'en, uk',
   country: 'us',
   // pageSize: 50
 }).then(response => {
-  console.log(response);
+  // console.log(response);
+  loadingN.style.display = "none";
   for (let i = 0; i < response.articles.length; i++) {
     postNews(response.articles[i]);
   }
@@ -62,7 +70,16 @@ function postWeather(weather) {
   // weatherBody.appendChild(icon);
   weatherBody.appendChild(temp);
   weatherBody.appendChild(main);
+  
   return weatherBody;
+}
+
+function postCurrency(rates) {
+  const cur = document.createElement('p');
+  cur.textContent = rates[0] + ': ' + rates[1];
+  cur.className = 'currency-rate';
+  currencyBody.appendChild(cur);
+  return currencyBody;
 }
 
 function ajaxRequest(url, callback) {
@@ -77,9 +94,22 @@ function ajaxRequest(url, callback) {
 
 navigator.geolocation.getCurrentPosition(function(position) {
   var weatherApiGeo = weatherApi + 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=27c032c960d68469abac96a14e79efe2'; 
-  console.log(weatherApiGeo);
-  
+  // console.log(weatherApiGeo);
   ajaxRequest(weatherApiGeo, function (weather) {
+    loadingW.style.display = "none";    
     postWeather(weather);
   });
+});
+
+ajaxRequest(currencyApi, function (currency) {
+  var mvalue = document.createElement('b');
+  mvalue.textContent = '1 ' + currency.base;
+  mvalue.className = 'currency-main';
+  currencyBody.appendChild(mvalue);
+
+  var rates = Object.entries(currency.rates);
+  for (let i = 0; i < rates.length; i++) {
+    postCurrency(rates[i]);
+  }
+  loadingC.style.display = "none";
 });
