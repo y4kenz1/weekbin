@@ -247,3 +247,13 @@ A {
     /* background-color: #715C8C; */
     background-color: #838BC2;
 }
+
+.time-text, .date-text {
+    font-size: 22px;
+    margin-bottom: -20px;
+    color: #838BC2;
+}
+
+.date-text {
+    float: right;
+}

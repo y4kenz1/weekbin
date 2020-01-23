@@ -13,6 +13,10 @@ const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 const currencyBody = document.querySelector('.currencybody');
 const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
 
+const dateBody = document.querySelector('.date');
+const timeBody = document.querySelector('.time');
+
+
 newsapi.v2.topHeadlines({
   category: 'business',
   language: 'en',
@@ -224,3 +228,28 @@ ajaxRequest(currencyApi, function (currency) {
   }
   loadingC.style.display = "none";
 });
+
+
+
+var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+
+var weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+
+setInterval(function postDate() {
+  const now = new Date();
+  dateBody.innerHTML = "";
+  const date = document.createElement('p');
+  date.textContent = months[now.getMonth()].toLowerCase() + ' ' + now.getDate() + ', ' + weekday[now.getDay()].toLowerCase();
+  date.className = 'date-text';
+  dateBody.appendChild(date);
+}, 1000);
+
+const time = document.createElement('p');
+
+setInterval(function postTime() {
+  const now = new Date();
+  timeBody.innerHTML = "";
+  time.textContent = now.getHours() + ':' + now.getMinutes();
+  time.className = 'time-text';
+  timeBody.appendChild(time);
+}, 1000);
