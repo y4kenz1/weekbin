@@ -5,25 +5,129 @@ const loadingC = document.querySelector('.loading-c');
 const newsBody = document.querySelector('.newsbody');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('e1abb009438d41dcb85f13e77d61ed43');
+const nTitle = document.querySelector('.ntitle');
 
 const weatherBody = document.querySelector('.weatherbody');
 const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const currencyBody = document.querySelector('.currencybody');
-const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,AUD,CAD,PLN,MXN';
+const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
 
 newsapi.v2.topHeadlines({
   category: 'business',
-  language: 'en, uk',
+  language: 'en',
   country: 'us',
   // pageSize: 50
 }).then(response => {
   // console.log(response);
+  newsBody.innerHTML = "";
   loadingN.style.display = "none";
   for (let i = 0; i < response.articles.length; i++) {
     postNews(response.articles[i]);
   }
-});
+});  
+
+document.getElementById("business").onclick = function () {
+  nTitle.textContent = 'BUSINESS NEWS';
+  newsapi.v2.topHeadlines({
+    category: 'business',
+    language: 'en',
+    country: 'us',
+    // pageSize: 50
+  }).then(response => {
+    // console.log(response);
+    newsBody.innerHTML = "";
+    loadingN.style.display = "none";
+    for (let i = 0; i < response.articles.length; i++) {
+      postNews(response.articles[i]);
+    }
+  });  
+};
+
+document.getElementById("technology").onclick = function () {
+  nTitle.textContent = 'TECHNOLOGY NEWS';
+  newsapi.v2.topHeadlines({
+    category: 'technology',
+    language: 'en',
+    country: 'us',
+    // pageSize: 50
+  }).then(response => {
+    // console.log(response);
+    newsBody.innerHTML = "";
+    loadingN.style.display = "none";
+    for (let i = 0; i < response.articles.length; i++) {
+      postNews(response.articles[i]);
+    }
+  });  
+};
+
+document.getElementById("entertainment").onclick = function () {
+  nTitle.textContent = 'ENTERTAINMENT NEWS';
+  newsapi.v2.topHeadlines({
+    category: 'entertainment',
+    language: 'en',
+    country: 'us',
+    // pageSize: 50
+  }).then(response => {
+    // console.log(response);
+    newsBody.innerHTML = "";
+    loadingN.style.display = "none";
+    for (let i = 0; i < response.articles.length; i++) {
+      postNews(response.articles[i]);
+    }
+  });  
+};
+
+document.getElementById("science").onclick = function () {
+  nTitle.textContent = 'SCIENCE NEWS';
+  newsapi.v2.topHeadlines({
+    category: 'science',
+    language: 'en',
+    country: 'us',
+    // pageSize: 50
+  }).then(response => {
+    // console.log(response);
+    newsBody.innerHTML = "";
+    loadingN.style.display = "none";
+    for (let i = 0; i < response.articles.length; i++) {
+      postNews(response.articles[i]);
+    }
+  });  
+};
+
+document.getElementById("sports").onclick = function () {
+  nTitle.textContent = 'SPORTS NEWS';
+  newsapi.v2.topHeadlines({
+    category: 'sports',
+    language: 'en',
+    country: 'us',
+    // pageSize: 50
+  }).then(response => {
+    // console.log(response);
+    newsBody.innerHTML = "";
+    loadingN.style.display = "none";
+    for (let i = 0; i < response.articles.length; i++) {
+      postNews(response.articles[i]);
+    }
+  });  
+};
+
+document.getElementById("health").onclick = function () {
+  nTitle.textContent = 'HEALTH NEWS';
+  newsapi.v2.topHeadlines({
+    category: 'health',
+    language: 'en',
+    country: 'us',
+    // pageSize: 50
+  }).then(response => {
+    // console.log(response);
+    newsBody.innerHTML = "";
+    loadingN.style.display = "none";
+    for (let i = 0; i < response.articles.length; i++) {
+      postNews(response.articles[i]);
+    }
+  });  
+};
 
 function postNews(response) {
   const div = document.createElement('div');
@@ -62,8 +166,10 @@ function postWeather(weather) {
   // icon.setAttribute('src', 'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png');
   // icon.className = 'weather-icon';
 
+  const tempF =  9 / 5 * (weather.main.temp - 273) + 32;
+
   const temp = document.createElement('p');
-  temp.textContent = weather.main.temp.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 3) + ' °F';
+  temp.textContent = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4) + ' °F';
   temp.className = 'weather-temp';
 
   weatherBody.appendChild(city);
@@ -106,6 +212,11 @@ ajaxRequest(currencyApi, function (currency) {
   mvalue.textContent = '1 ' + currency.base;
   mvalue.className = 'currency-main';
   currencyBody.appendChild(mvalue);
+
+  var arrow = document.createElement('img');
+  arrow.setAttribute('src', 'design/svg/arrow.svg');
+  arrow.className = 'currency-arrow';
+  currencyBody.appendChild(arrow);
 
   var rates = Object.entries(currency.rates);
   for (let i = 0; i < rates.length; i++) {
