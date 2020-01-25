@@ -34,39 +34,42 @@
 
 </head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <body>
   <img class="logo" src="design/logo.png" alt="WEEKBIN">
   <h2 class="description">AUTOMATED NEWS SERVICE</h2>
-  <div class="container-fluid">
+  <div class="date"></div>
+  <!-- <div class="container-fluid">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-5">    
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5">    
         <div class="time"></div>
       </div>
-      <div class="col-5">    
+      <div class="col-sm-5">    
         <div class="date"></div>
       </div>
-      <div class="col-1"></div>
+      <div class="col-sm-1"></div>
     </div>
-  </div>
+  </div> -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-7">
+      <div class="col-md-1"></div>
+      <div class="col-md-7">
         <img src="design/svg/newspaper.svg" class="titleimg"><b class="title ntitle">BUSINESS NEWS</b>
         <div class="btns">
-          <button type="button" class="button" id="business">business</button>
-          <button type="button" class="button" id="technology">technology</button>
-          <button type="button" class="button" id="entertainment">entertainment</button>
-          <button type="button" class="button" id="science">science</button>
-          <button type="button" class="button" id="sports">sports</button>
-          <button type="button" class="button" id="health">health</button>
+          <button type="button" class="button" id="business"><span>business</span></button>
+          <button type="button" class="button" id="technology"><span>technology</span></button>
+          <button type="button" class="button" id="entertainment"><span>entertainment</span></button>
+          <button type="button" class="button" id="science"><span>science</span></button>
+          <button type="button" class="button" id="sports"><span>sports</span></button>
+          <button type="button" class="button" id="health"><span>health</span></button>
         </div>
         <div class="newsbody">
           <img src="design/svg/Spinner.svg" class="loading-n">
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-md-3">
         <img src="design/svg/cloud.svg" class="titleimg"><b class="title">WEATHER</b>
         <div class="weatherbody">
           <img src="design/svg/Spinner.svg" class="loading-w">
@@ -77,7 +80,7 @@
           <img src="design/svg/Spinner.svg" class="loading-c">
         </div>
       </div>
-      <div class="col-1"></div>
+      <div class="col-md-1"></div>
     </div>
   </div>
   <div class="links">
@@ -86,7 +89,13 @@
     <a href="https://www.donationalerts.com/r/y4kenz1" target="_blank" class="link">DONATE</a>
     <a href="https://twitter.com/y4kenz1" target="_blank" class="link">SUPPORT</a>
   </div class="links">
+  <div class="apis">
+    <p class="api">News by <a href="https://newsapi.org/" class="api">NewsAPI</a></pclass="apis">
+    <p class="api">Weather by <a href="https://openweathermap.org/" class="api">OpenWeatherMap</a></p>
+    <p class="api">Currency rates by <a href="https://fixer.io/" class="api">Fixer</a></p>
+  </div>
   <script src="bundle.js"></script>
+  <script src="desktop.js"></script>
 </body>
 
 </html>

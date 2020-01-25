@@ -16,6 +16,10 @@ const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e27
 const dateBody = document.querySelector('.date');
 const timeBody = document.querySelector('.time');
 
+var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+var weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+
+var btn = document.querySelector('.button')
 
 newsapi.v2.topHeadlines({
   category: 'business',
@@ -229,12 +233,6 @@ ajaxRequest(currencyApi, function (currency) {
   loadingC.style.display = "none";
 });
 
-
-
-var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-
-var weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-
 setInterval(function postDate() {
   const now = new Date();
   dateBody.innerHTML = "";
@@ -244,12 +242,9 @@ setInterval(function postDate() {
   dateBody.appendChild(date);
 }, 1000);
 
-const time = document.createElement('p');
-
-setInterval(function postTime() {
-  const now = new Date();
-  timeBody.innerHTML = "";
-  time.textContent = now.getHours() + ':' + now.getMinutes();
-  time.className = 'time-text';
-  timeBody.appendChild(time);
-}, 1000);
+btn.onmousemove = function(e) {
+  var x = e.pageX - btn.offsetLeft - btn.offsetParent.offsetLeft
+  var y = e.pageY - btn.offsetTop - btn.offsetParent.offsetTop
+  btn.style.setProperty('--x', x + 'px')
+  btn.style.setProperty('--y', y + 'px')
+}
