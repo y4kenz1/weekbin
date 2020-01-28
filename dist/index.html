@@ -39,46 +39,32 @@
 <body>
   <img class="logo" src="design/logo.png" alt="WEEKBIN">
   <h2 class="description">AUTOMATED NEWS SERVICE</h2>
+  <h3 class="beta">currently in beta</h3>
+  <div class="btns">
+    <button type="button" class="button" id="business"><span>business</span></button>
+    <button type="button" class="button" id="technology"><span>technology</span></button>
+    <button type="button" class="button" id="entertainment"><span>entertainment</span></button>
+    <button type="button" class="button" id="science"><span>science</span></button>
+    <button type="button" class="button" id="sports"><span>sports</span></button>
+    <button type="button" class="button" id="health"><span>health</span></button>
+  </div>
+  <div class="titlediv"><b class="title ntitle">BUSINESS NEWS</b></div>
   <div class="date"></div>
-  <!-- <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-sm-5">    
-        <div class="time"></div>
-      </div>
-      <div class="col-sm-5">    
-        <div class="date"></div>
-      </div>
-      <div class="col-sm-1"></div>
-    </div>
-  </div> -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-7">
-        <img src="design/svg/newspaper.svg" class="titleimg"><b class="title ntitle">BUSINESS NEWS</b>
-        <div class="btns">
-          <button type="button" class="button" id="business"><span>business</span></button>
-          <button type="button" class="button" id="technology"><span>technology</span></button>
-          <button type="button" class="button" id="entertainment"><span>entertainment</span></button>
-          <button type="button" class="button" id="science"><span>science</span></button>
-          <button type="button" class="button" id="sports"><span>sports</span></button>
-          <button type="button" class="button" id="health"><span>health</span></button>
-        </div>
-        <div class="newsbody">
-          <img src="design/svg/Spinner.svg" class="loading-n">
-        </div>
-      </div>
       <div class="col-md-3">
-        <img src="design/svg/cloud.svg" class="titleimg"><b class="title">WEATHER</b>
         <div class="weatherbody">
-          <img src="design/svg/Spinner.svg" class="loading-w">
+          <div class="loading loading-w"></div>
         </div>
-        <div class="w-100"></div>
-        <img src="design/svg/coin.svg" class="titleimg"><b class="title">CURRENCY</b>
+        <div class="news2"></div>
+      </div>
+      <div class="col-md-4 news1"></div>
+      <div class="col-md-3">
         <div class="currencybody">
-          <img src="design/svg/Spinner.svg" class="loading-c">
+          <div class="loading loading-c"></div>
         </div>
+        <div class="news3"></div>
       </div>
       <div class="col-md-1"></div>
     </div>
@@ -95,6 +81,6 @@
     <p class="api">Currency rates by <a href="https://fixer.io/" class="api">Fixer</a></p>
   </div>
   <script src="bundle.js"></script>
-</body>
+</body style="background-color:#1c87c9;">
 
 </html>

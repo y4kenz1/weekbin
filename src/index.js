@@ -1,8 +1,9 @@
-const loadingN = document.querySelector('.loading-n');
 const loadingW = document.querySelector('.loading-w');
 const loadingC = document.querySelector('.loading-c');
 
-const newsBody = document.querySelector('.newsbody');
+const news1Body = document.querySelector('.news1');
+const news2Body = document.querySelector('.news2');
+const news3Body = document.querySelector('.news3');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('e1abb009438d41dcb85f13e77d61ed43');
 const nTitle = document.querySelector('.ntitle');
@@ -14,24 +15,53 @@ const currencyBody = document.querySelector('.currencybody');
 const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
 
 const dateBody = document.querySelector('.date');
-const timeBody = document.querySelector('.time');
 
 var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 var weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+var category = new Array('business', 'technology', 'entertainment', 'science', 'sports', 'health');
 
 var btn = document.querySelector('.button')
+
+if (window.innerWidth <= 1080) {
+  nTitle.style.fontSize = '44px';
+
+  document.querySelector('.logo').src = 'design/logom.png';
+  document.querySelector('.logo').style.height = 'auto';
+  document.querySelector('.logo').style.width = '70%';
+}
+
+btn.onmousemove = function(e) {
+  var x = e.pageX - btn.offsetLeft - btn.offsetParent.offsetLeft
+  var y = e.pageY - btn.offsetTop - btn.offsetParent.offsetTop
+  btn.style.setProperty('--x', x + 'px')
+  btn.style.setProperty('--y', y + 'px')
+}
 
 newsapi.v2.topHeadlines({
   category: 'business',
   language: 'en',
   country: 'us',
-  // pageSize: 50
 }).then(response => {
-  // console.log(response);
-  newsBody.innerHTML = "";
-  loadingN.style.display = "none";
-  for (let i = 0; i < response.articles.length; i++) {
-    postNews(response.articles[i]);
+  news1Body.innerHTML = "";
+  news2Body.innerHTML = "";
+  news3Body.innerHTML = "";
+  var n = response.articles.length / 3;
+  n = Math.round(n);
+
+  for (let i = 0; i < n; i++) {
+    if (response.articles[i] != undefined) {
+      postNews(response.articles[i], 1);
+    }
+  }
+  for (let i = n; i < n+n; i++) {
+    if (response.articles[i] != undefined) {
+      postNews(response.articles[i], 2);
+    }
+  }
+  for (let i = n+n; i < n+n+n; i++) {
+    if (response.articles[i] != undefined) {
+      postNews(response.articles[i], 3);
+    }
   }
 });  
 
@@ -43,11 +73,26 @@ document.getElementById("business").onclick = function () {
     country: 'us',
     // pageSize: 50
   }).then(response => {
-    // console.log(response);
-    newsBody.innerHTML = "";
-    loadingN.style.display = "none";
-    for (let i = 0; i < response.articles.length; i++) {
-      postNews(response.articles[i]);
+    news1Body.innerHTML = "";
+    news2Body.innerHTML = "";
+    news3Body.innerHTML = "";
+    var n = response.articles.length / 3;
+    n = Math.round(n);
+  
+    for (let i = 0; i < n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 1);
+      }
+    }
+    for (let i = n; i < n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 2);
+      }
+    }
+    for (let i = n+n; i < n+n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 3);
+      }
     }
   });  
 };
@@ -60,11 +105,26 @@ document.getElementById("technology").onclick = function () {
     country: 'us',
     // pageSize: 50
   }).then(response => {
-    // console.log(response);
-    newsBody.innerHTML = "";
-    loadingN.style.display = "none";
-    for (let i = 0; i < response.articles.length; i++) {
-      postNews(response.articles[i]);
+    news1Body.innerHTML = "";
+    news2Body.innerHTML = "";
+    news3Body.innerHTML = "";
+    var n = response.articles.length / 3;
+    n = Math.round(n);
+  
+    for (let i = 0; i < n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 1);
+      }
+    }
+    for (let i = n; i < n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 2);
+      }
+    }
+    for (let i = n+n; i < n+n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 3);
+      }
     }
   });  
 };
@@ -77,11 +137,27 @@ document.getElementById("entertainment").onclick = function () {
     country: 'us',
     // pageSize: 50
   }).then(response => {
-    // console.log(response);
-    newsBody.innerHTML = "";
-    loadingN.style.display = "none";
-    for (let i = 0; i < response.articles.length; i++) {
-      postNews(response.articles[i]);
+    news1Body.innerHTML = "";
+    news2Body.innerHTML = "";
+    news3Body.innerHTML = "";
+    
+    var n = response.articles.length / 3;
+    n = Math.round(n);
+  
+    for (let i = 0; i < n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 1);
+      }
+    }
+    for (let i = n; i < n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 2);
+      }
+    }
+    for (let i = n+n; i < n+n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 3);
+      }
     }
   });  
 };
@@ -94,11 +170,27 @@ document.getElementById("science").onclick = function () {
     country: 'us',
     // pageSize: 50
   }).then(response => {
-    // console.log(response);
-    newsBody.innerHTML = "";
-    loadingN.style.display = "none";
-    for (let i = 0; i < response.articles.length; i++) {
-      postNews(response.articles[i]);
+    news1Body.innerHTML = "";
+    news2Body.innerHTML = "";
+    news3Body.innerHTML = "";
+    
+    var n = response.articles.length / 3;
+    n = Math.round(n);
+  
+    for (let i = 0; i < n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 1);
+      }
+    }
+    for (let i = n; i < n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 2);
+      }
+    }
+    for (let i = n+n; i < n+n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 3);
+      }
     }
   });  
 };
@@ -111,11 +203,27 @@ document.getElementById("sports").onclick = function () {
     country: 'us',
     // pageSize: 50
   }).then(response => {
-    // console.log(response);
-    newsBody.innerHTML = "";
-    loadingN.style.display = "none";
-    for (let i = 0; i < response.articles.length; i++) {
-      postNews(response.articles[i]);
+    news1Body.innerHTML = "";
+    news2Body.innerHTML = "";
+    news3Body.innerHTML = "";
+    
+    var n = response.articles.length / 3;
+    n = Math.round(n);
+  
+    for (let i = 0; i < n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 1);
+      }
+    }
+    for (let i = n; i < n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 2);
+      }
+    }
+    for (let i = n+n; i < n+n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 3);
+      }
     }
   });  
 };
@@ -128,18 +236,41 @@ document.getElementById("health").onclick = function () {
     country: 'us',
     // pageSize: 50
   }).then(response => {
-    // console.log(response);
-    newsBody.innerHTML = "";
-    loadingN.style.display = "none";
-    for (let i = 0; i < response.articles.length; i++) {
-      postNews(response.articles[i]);
+    news1Body.innerHTML = "";
+    news2Body.innerHTML = "";
+    news3Body.innerHTML = "";
+    
+    var n = response.articles.length / 3;
+    n = Math.round(n);
+  
+    for (let i = 0; i < n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 1);
+      }
+    }
+    for (let i = n; i < n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 2);
+      }
+    }
+    for (let i = n+n; i < n+n+n; i++) {
+      if (response.articles[i] != undefined) {
+        postNews(response.articles[i], 3);
+      }
     }
   });  
 };
 
-function postNews(response) {
+function postNews(response, number) {
   const div = document.createElement('div');
   div.className = 'article';
+
+  if (response.urlToImage != undefined && response.urlToImage.complete != false) {
+    const img = document.createElement('img');
+    img.src = response.urlToImage;
+    img.className = 'article-img';
+    div.appendChild(img);
+  }
 
   const title = document.createElement('a');
   title.textContent = response.title.toUpperCase();
@@ -147,18 +278,25 @@ function postNews(response) {
   title.setAttribute('target', '_blank');
   title.className = 'article-title';
 
+  div.appendChild(title);
+
+  if (response.description != null) {
   const description = document.createElement('p');
   description.textContent = response.description.toLowerCase();
   description.className = 'article-description';
-
-  const line = document.createElement('hr');
-  line.className = 'article-line';
-
-  div.appendChild(title);
   div.appendChild(description);
-  div.appendChild(line);
-  newsBody.appendChild(div);
-  return newsBody;
+  }
+
+  if (number === 1) {
+    news1Body.appendChild(div);
+    return news1Body;
+  } else if (number === 2) {
+    news2Body.appendChild(div);
+    return news2Body;
+  } else if (number === 3) {
+    news3Body.appendChild(div);
+    return news3Body;
+  }
 }
 
 function postWeather(weather) {
@@ -208,30 +346,29 @@ function ajaxRequest(url, callback) {
 
 navigator.geolocation.getCurrentPosition(function(position) {
   var weatherApiGeo = weatherApi + 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=27c032c960d68469abac96a14e79efe2'; 
-  // console.log(weatherApiGeo);
   ajaxRequest(weatherApiGeo, function (weather) {
     loadingW.style.display = "none";    
     postWeather(weather);
   });
 });
 
-ajaxRequest(currencyApi, function (currency) {
-  var mvalue = document.createElement('b');
-  mvalue.textContent = '1 ' + currency.base;
-  mvalue.className = 'currency-main';
-  currencyBody.appendChild(mvalue);
+// ajaxRequest(currencyApi, function (currency) {
+//   var mvalue = document.createElement('b');
+//   mvalue.textContent = '1 ' + currency.base;
+//   mvalue.className = 'currency-main';
+//   currencyBody.appendChild(mvalue);
 
-  var arrow = document.createElement('img');
-  arrow.setAttribute('src', 'design/svg/arrow.svg');
-  arrow.className = 'currency-arrow';
-  currencyBody.appendChild(arrow);
+//   var arrow = document.createElement('img');
+//   arrow.setAttribute('src', 'design/svg/arrow.svg');
+//   arrow.className = 'currency-arrow';
+//   currencyBody.appendChild(arrow);
 
-  var rates = Object.entries(currency.rates);
-  for (let i = 0; i < rates.length; i++) {
-    postCurrency(rates[i]);
-  }
-  loadingC.style.display = "none";
-});
+//   var rates = Object.entries(currency.rates);
+//   for (let i = 0; i < rates.length; i++) {
+//     postCurrency(rates[i]);
+//   }
+//   loadingC.style.display = "none";
+// });
 
 setInterval(function postDate() {
   const now = new Date();
@@ -241,10 +378,3 @@ setInterval(function postDate() {
   date.className = 'date-text';
   dateBody.appendChild(date);
 }, 1000);
-
-btn.onmousemove = function(e) {
-  var x = e.pageX - btn.offsetLeft - btn.offsetParent.offsetLeft
-  var y = e.pageY - btn.offsetTop - btn.offsetParent.offsetTop
-  btn.style.setProperty('--x', x + 'px')
-  btn.style.setProperty('--y', y + 'px')
-}
