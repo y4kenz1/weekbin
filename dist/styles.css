@@ -18,7 +18,7 @@ A {
 
 .titleimg {
     width: 50px;
-    display:inline-block;
+    display:inline;
     vertical-align:middle;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -29,7 +29,7 @@ A {
     color: #715C8C;
     font-size: 50px;
     line-height:1.1;
-    display:inline-block;
+    display:inline;
     vertical-align:middle;
     margin-left: 10px;
     margin-top: 10px;
