@@ -27,54 +27,16 @@ A {
 .title {
     font-family: FontPro;
     color: #715C8C;
-    font-size: 50px;
-    line-height:1.1;
+    font-size: 80px;
+    line-height: 1.1;
     display:inline;
-    vertical-align:middle;
-    margin-left: 10px;
+    vertical-align: middle;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.newsbody {
-    font-family: FontPro;
-    font-size: 14px;
-    overflow: auto;
-    height: 620px;
-    margin-bottom: 5px;
-    border-radius: 15px 15px 15px 15px;
-    border: 3px solid #333F63;
-    padding: 10px;
-}
-
-.newsbody::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-	border-radius: 10px;
-}
-
-.newsbody::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
-}
-
-.newsbody::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	/* background-image: -webkit-gradient(linear,
-									   left bottom,
-									   left top,
-									   color-stop(0.44, rgb(51, 63, 99)),
-                                       color-stop(0.72, rgb(51, 63, 99)),
-                                       color-stop(0.86, rgb(113, 92, 140))); */
-    	background-image: -webkit-gradient(linear,
-									   40% 0%,
-									   75% 84%,
-									   from(#715C8C),
-									   to(#333F63),
-									   color-stop(.6,#333F63))
+.titlediv {
+    text-align: center;
 }
 
 .logo {
@@ -87,36 +49,48 @@ A {
     margin-top: 35px;
 }
 
-.col-md-7 {
-    /* border-radius: 15px 0px 0px 15px;
-    border: 3px solid #333F63;
-    border-right: 0px; */
-    /* border-image-source: linear-gradient(45deg, rgb(113, 92, 140), rgb(51, 63, 99));
-    border-image-slice: 1; */
-}
-
-.col-md-3 {
-    /* border-radius: 0px 15px 15px 0px;
-    border: 3px solid #333F63;
-    border-left: 0px; */
-    /* border-image-source: linear-gradient(-45deg, rgb(113, 92, 140), rgb(51, 63, 99));
-    border-image-slice: 1;; */
-}
-
 .description {
     font-family: FontPro;
-    /* background: -webkit-linear-gradient(#fc5c7d, #fdbb2d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     color: #333F63;
     text-align: center;
     margin-top: 37px;
     font-size: 34px;
+    margin-bottom: 0px;
+}
+
+.beta {
+    font-family: FontPro;
+    color: #838BC2;
+    text-align: center;
+    margin-top: 0px;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.article {
+    font-family: FontPro;
+    font-size: 14px;
+    /* overflow: auto; */
+    margin-bottom: 30px;
+    border-radius: 15px 15px 15px 15px;
+    border: 4px solid #333F63;
+    /* padding: 4px; */
+}
+
+.article-img {
+    width:100%;
+    height:100%;
+    display: inline-block;
+    /* margin-bottom: 5px; */
+    border-radius: 10px 10px 0px 0px;
+
 }
 
 .article-title {
-    font-size: 20px;
+    margin: 5px;
+    font-size: 22px;
     color: #715C8C;
+    display: inline-block;
 }
 
 .article-title:hover {
@@ -126,7 +100,9 @@ A {
 }
 
 .article-description {
+    margin: 5px;
     color: #838BC2;    
+    display: inline-block;
 }
 
 /* .content{
@@ -186,10 +162,11 @@ A {
 .weatherbody, .currencybody {
     font-family: FontPro;
     border-radius: 15px 15px 15px 15px;
-    border: 3px solid #333F63;
+    border: 4px solid #333F63;
     /* border-image-source: repeating-radial-gradient(#715C8C, #333F63);
     border-image-slice: 1; */
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .weather-city {
@@ -221,11 +198,27 @@ A {
     height: auto;
 } */
 
-.loading-n, .loading-w, .loading-c {
-    display: block;
+@keyframes donut-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading {
+    display: inline-block;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #715C8C;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: donut-spin 1.2s linear infinite;
     margin-left: auto;
     margin-right: auto;
-}
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 
 .currency-arrow {
     margin-left: auto;
@@ -248,7 +241,7 @@ A {
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 14px;
     position: relative;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -287,6 +280,7 @@ A {
 
 .btns {
     font-family: FontPro;
+    text-align: center;
 }
 
 .apis {
