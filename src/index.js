@@ -11,8 +11,9 @@ const nTitle = document.querySelector('.ntitle');
 const weatherBody = document.querySelector('.weatherbody');
 const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
-const currencyBody = document.querySelector('.currencybody');
+const widgetBody = document.querySelector('.body3');
 const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
+const musicApi = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=7475c75abe79ec1543d3587b1c852cdd&format=json';
 
 const dateBody = document.querySelector('.date');
 
@@ -45,6 +46,11 @@ newsapi.v2.topHeadlines({
   news1Body.innerHTML = "";
   news2Body.innerHTML = "";
   news3Body.innerHTML = "";
+  widgetBody.innerHTML = "";
+  widgetBody.style.display = 'none';
+  
+  getCurrency();
+
   var n = response.articles.length / 3;
   n = Math.round(n);
 
@@ -76,6 +82,11 @@ document.getElementById("business").onclick = function () {
     news1Body.innerHTML = "";
     news2Body.innerHTML = "";
     news3Body.innerHTML = "";
+    widgetBody.innerHTML = "";
+    widgetBody.style.display = 'none';
+  
+    getCurrency();
+
     var n = response.articles.length / 3;
     n = Math.round(n);
   
@@ -108,6 +119,9 @@ document.getElementById("technology").onclick = function () {
     news1Body.innerHTML = "";
     news2Body.innerHTML = "";
     news3Body.innerHTML = "";
+    widgetBody.innerHTML = "";
+    widgetBody.style.display = 'none';
+  
     var n = response.articles.length / 3;
     n = Math.round(n);
   
@@ -140,7 +154,11 @@ document.getElementById("entertainment").onclick = function () {
     news1Body.innerHTML = "";
     news2Body.innerHTML = "";
     news3Body.innerHTML = "";
+    widgetBody.innerHTML = "";
+    widgetBody.style.display = 'none';
     
+    getMusic();
+
     var n = response.articles.length / 3;
     n = Math.round(n);
   
@@ -173,7 +191,9 @@ document.getElementById("science").onclick = function () {
     news1Body.innerHTML = "";
     news2Body.innerHTML = "";
     news3Body.innerHTML = "";
-    
+    widgetBody.innerHTML = "";
+    widgetBody.style.display = 'none';
+  
     var n = response.articles.length / 3;
     n = Math.round(n);
   
@@ -206,7 +226,9 @@ document.getElementById("sports").onclick = function () {
     news1Body.innerHTML = "";
     news2Body.innerHTML = "";
     news3Body.innerHTML = "";
-    
+    widgetBody.innerHTML = "";
+    widgetBody.style.display = 'none';
+  
     var n = response.articles.length / 3;
     n = Math.round(n);
   
@@ -239,7 +261,9 @@ document.getElementById("health").onclick = function () {
     news1Body.innerHTML = "";
     news2Body.innerHTML = "";
     news3Body.innerHTML = "";
-    
+    widgetBody.innerHTML = "";
+    widgetBody.style.display = 'none';
+  
     var n = response.articles.length / 3;
     n = Math.round(n);
   
@@ -334,6 +358,73 @@ function postCurrency(rates) {
   return currencyBody;
 }
 
+function getCurrency() {
+  widgetBody.style.display = 'block';
+  ajaxRequest(currencyApi, function (currency) {
+    console.log(currency);
+
+    var currencyBody = document.createElement('div');
+    currencyBody.className = 'currencybody';
+
+    var mvalue = document.createElement('b');
+    mvalue.textContent = '1 ' + currency.base;
+    mvalue.className = 'currency-main';
+    currencyBody.appendChild(mvalue);
+  
+    var arrow = document.createElement('img');
+    arrow.setAttribute('src', 'design/svg/arrow.svg');
+    arrow.className = 'currency-arrow';
+    currencyBody.appendChild(arrow);
+  
+    var rates = Object.entries(currency.rates);
+    for (let i = 0; i < rates.length; i++) {
+      postCurrency(rates[i]);
+    }
+    widgetBody.appendChild(currencyBody);
+  });  
+}
+
+function postMusic(response) {
+  const div = document.createElement('div');
+  div.className = 'music';
+
+  const name = document.createElement('a');
+  name.textContent = response.name.toUpperCase();
+  name.setAttribute('href', response.url);
+  name.setAttribute('target', '_blank');
+  name.className = 'music-name';
+  div.appendChild(name);
+
+  const artist = document.createElement('p');
+  artist.textContent = response.artist.name.toLowerCase();
+  artist.setAttribute('href', response.artist.url);
+  artist.setAttribute('target', '_blank');
+  artist.className = 'music-artist';
+  div.appendChild(artist);
+
+  const hr = document.createElement('hr');
+  hr.className = 'hr';
+  div.appendChild(hr);  
+
+  widgetBody.appendChild(div);
+  return widgetBody;
+}
+
+function getMusic(params) {
+  widgetBody.style.display = 'block';
+  ajaxRequest(musicApi, function (music) {
+    var headline = document.createElement('b');
+    headline.textContent = 'LAST.FM : TOP 10 SONGS';
+    headline.className = 'music-headline';
+    widgetBody.appendChild(headline);
+  
+    for (let i = 0; i < 10; i++) {
+      postMusic(music.tracks.track[i]);
+    }
+    return widgetBody;
+  });    
+}
+
 function ajaxRequest(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
@@ -351,24 +442,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
     postWeather(weather);
   });
 });
-
-// ajaxRequest(currencyApi, function (currency) {
-//   var mvalue = document.createElement('b');
-//   mvalue.textContent = '1 ' + currency.base;
-//   mvalue.className = 'currency-main';
-//   currencyBody.appendChild(mvalue);
-
-//   var arrow = document.createElement('img');
-//   arrow.setAttribute('src', 'design/svg/arrow.svg');
-//   arrow.className = 'currency-arrow';
-//   currencyBody.appendChild(arrow);
-
-//   var rates = Object.entries(currency.rates);
-//   for (let i = 0; i < rates.length; i++) {
-//     postCurrency(rates[i]);
-//   }
-//   loadingC.style.display = "none";
-// });
 
 setInterval(function postDate() {
   const now = new Date();
