@@ -20,7 +20,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: process.env.PORT || 5000,
+    // port: 3000,
     open: true,
     historyApiFallback: true
   },
