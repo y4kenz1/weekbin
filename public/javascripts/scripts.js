@@ -15,7 +15,6 @@ const widgetBody = document.querySelector('.body3');
 const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
 const musicApi = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=7475c75abe79ec1543d3587b1c852cdd&format=json';
 var currencyBody;
-
 const dateBody = document.querySelector('.date');
 
 var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
@@ -40,7 +39,7 @@ async function getData(url) {
 if (window.innerWidth <= 1080) {
     nTitle.style.fontSize = '44px';
 
-    document.querySelector('.logo').src = '/images/logom.png';
+    document.querySelector('.logo').src = 'images/logom.png';
     document.querySelector('.logo').style.height = 'auto';
     document.querySelector('.logo').style.width = '70%';
 }
@@ -358,7 +357,7 @@ function getCurrency() {
         currencyBody.appendChild(mvalue);
 
         var arrow = document.createElement('img');
-        arrow.setAttribute('src', '/images/svg/arrow.svg');
+        arrow.setAttribute('src', 'images/svg/arrow.svg');
         arrow.className = 'currency-arrow';
         currencyBody.appendChild(arrow);
 
