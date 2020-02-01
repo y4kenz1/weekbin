@@ -1,11 +1,11 @@
 @font-face {
   font-family: FontPro;
-  src: url(images/fonts/FETHEPROFESSIONAL-Regular.otf);
+  src: url(/public/images/fonts/FETHEPROFESSIONAL-Regular.otf);
 }
 
 @font-face {
   font-family: FontReg;
-  src: url(images/fonts/FEHero-Regular.otf);
+  src: url(/public/images/fonts/FEHero-Regular.otf);
 }
 
 /* * {

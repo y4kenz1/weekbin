@@ -39,7 +39,7 @@ async function getData(url) {
 if (window.innerWidth <= 1080) {
     nTitle.style.fontSize = '44px';
 
-    document.querySelector('.logo').src = 'images/logom.png';
+    document.querySelector('.logo').src = '/public/images/logom.png';
     document.querySelector('.logo').style.height = 'auto';
     document.querySelector('.logo').style.width = '70%';
 }
@@ -357,7 +357,7 @@ function getCurrency() {
         currencyBody.appendChild(mvalue);
 
         var arrow = document.createElement('img');
-        arrow.setAttribute('src', 'images/svg/arrow.svg');
+        arrow.setAttribute('src', '/public/images/svg/arrow.svg');
         arrow.className = 'currency-arrow';
         currencyBody.appendChild(arrow);
 
