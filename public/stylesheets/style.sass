@@ -1,6 +1,300 @@
-body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+@font-face
+  font-family: FontPro
+  src: url(/public/images/fonts/FETHEPROFESSIONAL-Regular.otf)
 
-a
-  color: #00B7FF
+@font-face
+  font-family: FontReg
+  src: url(/public/images/fonts/FEHero-Regular.otf)
+
+/* * {
+ *  font-family: FontPro;
+ *}
+
+A
+  text-decoration: none
+
+.titleimg
+  width: 50px
+  display: inline
+  vertical-align: middle
+  margin-top: 10px
+  margin-bottom: 10px
+
+.title
+  font-family: FontPro
+  color: #715C8C
+  font-size: 80px
+  line-height: 1.1
+  display: inline
+  vertical-align: middle
+  margin-top: 10px
+  margin-bottom: 10px
+
+.titlediv
+  text-align: center
+
+.logo
+  width: auto
+  display: block
+  margin-left: auto
+  margin-right: auto
+  max-width: 100%
+  height: auto
+  margin-top: 35px
+
+.description
+  font-family: FontPro
+  color: #333F63
+  text-align: center
+  margin-top: 37px
+  font-size: 34px
+  margin-bottom: 0px
+
+.beta
+  font-family: FontPro
+  color: #838BC2
+  text-align: center
+  margin-top: 0px
+  font-size: 15px
+  margin-bottom: 30px
+
+.article
+  font-family: FontPro
+  font-size: 14px
+
+  /* overflow: auto;
+  margin-bottom: 30px
+  border-radius: 15px 15px 15px 15px
+  border: 4px solid #333F63
+
+  /* padding: 4px;
+
+.article-img
+  width: 100%
+  height: 100%
+  display: inline-block
+
+  /* margin-bottom: 5px;
+  border-radius: 10px 10px 0px 0px
+
+.article-title
+  margin: 5px
+  font-size: 22px
+  color: #715C8C
+  display: inline-block
+
+  &:hover
+    color: #715C8C
+    border-bottom-color: rgba(51, 63, 99, 1)
+
+.article-description
+  margin: 5px
+  color: #838BC2
+  display: inline-block
+
+/* .content{
+ *  width: auto;
+ *  height: auto;
+ *  display: block;
+ *  margin-left: 345px;
+ *  margin-right: 345px;
+ *  border: 3px solid transparent;
+ *  border-radius:10px;
+ *  -moz-border-radius:10px;
+ *  -webkit-border-radius:10px;
+ *  -moz-border-image: -moz-linear-gradient(top, #fdbb2d 0%, #fc5c7d 100%);
+ *  -webkit-border-image: -webkit-linear-gradient(top, #fdbb2d 0%, #fc5c7d 100%);
+ *  border-image: linear-gradient(to bottom, #fdbb2d 0%, #fc5c7d 100%);
+ *  border-image-slice: 1;
+ *}
+
+.link, .links
+  font-family: FontPro
+  color: #333F63
+  text-align: center
+  font-size: 28px
+  margin-top: 20px
+  margin-bottom: 10px
+
+.row
+  margin-top: 27px
+
+.link
+  margin-left: 40px
+
+  &:hover
+    color: #715C8C
+    border-bottom-color: rgb(113, 92, 140, 1)
+    transition: 0.5s
+
+.currency-main
+  color: #333F63
+  font-size: 40px
+  margin-bottom: 0px
+  display: block
+
+.currency-rate
+  color: #838BC2
+  font-size: 25px
+  display: block
+
+.body3
+  display: none
+
+.weatherbody, .body3
+  font-family: FontPro
+  border-radius: 15px 15px 15px 15px
+  border: 4px solid #333F63
+
+  /* border-image-source: repeating-radial-gradient(#715C8C, #333F63);
+   *border-image-slice: 1;
+  text-align: center
+  margin-bottom: 30px
+
+.weather-city
+  color: #333F63
+  font-size: 35px
+  display: block
+  margin-top: 10px
+
+.weather-main
+  font-size: 25px
+  display: block
+  margin-bottom: 10px
+  color: #838BC2
+
+.weather-temp
+  /* background: -webkit-linear-gradient(#fdbb2d, #fc5c7d);
+   *-webkit-background-clip: text;
+   *-webkit-text-fill-color: transparent;
+  color: #715C8C
+  font-size: 40px
+  margin-bottom: 0px
+
+/* .weather-icon {
+ *  margin-top: 0px;
+ *  width: 20%;
+ *  height: auto;
+ *}
+
+@keyframes donut-spin
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
+.loading
+  display: inline-block
+  border: 4px solid rgba(0, 0, 0, 0.1)
+  border-left-color: #715C8C
+  border-radius: 50%
+  width: 50px
+  height: 50px
+  animation: donut-spin 1.2s linear infinite
+  margin-left: auto
+  margin-right: auto
+  margin-top: 100px
+  margin-bottom: 100px
+
+.currency-arrow
+  margin-left: auto
+  margin-right: auto
+  width: 30px
+  display: inline-block
+  vertical-align: middle
+  margin-top: -20px
+
+.button
+  margin-left: 5px
+  margin-bottom: 17px
+
+  /* background: -webkit-linear-gradient(#715C8C, #333F63);
+  background: #333F63
+  color: white
+  padding: 5px 15px
+  border: 0 none
+  border-radius: 10px
+  font-weight: 700
+  letter-spacing: 1px
+  text-transform: uppercase
+  font-size: 14px
+  position: relative
+  padding: 0.5rem 1rem
+  cursor: pointer
+  outline: none
+  overflow: hidden
+
+  span
+    position: relative
+
+  &::before
+    --size:0
+    content: ''
+    position: absolute
+    left: var(--x)
+    top: var(--y)
+    width: var(--size)
+    height: var(--size)
+    background: radial-gradient(circle closest-side, #838BC2, transparent)
+    transform: translate(-50%, -50%)
+    transition: width 0.2s ease, height 0.2s ease
+
+  &:hover::before
+    --size:200px
+
+.date
+  font-family: FontPro
+  font-size: 22px
+
+  /* margin-bottom: 0px;
+  color: #838BC2
+  text-align: center
+
+.btns
+  font-family: FontPro
+  text-align: center
+
+.apis
+  font-family: Arial, Helvetica, sans-serif
+  text-align: center
+  font-size: 10px
+  color: #838BC2
+  text-decoration: none
+
+.api
+  margin-bottom: 1px
+  text-decoration: none
+  color: #838BC2
+
+  &:hover
+    color: #838BC2
+
+.music
+  text-align: left
+  margin-left: 10px
+  margin-right: 10px
+
+.music-headline
+  color: #715C8C
+  font-size: 25px
+  margin-bottom: 10px
+  margin-top: 10px
+  display: block
+
+.music-name
+  color: #333F63
+
+  &:hover
+    color: #715C8C
+    border-bottom-color: rgb(113, 92, 140, 1)
+    transition: 0.5s
+
+.music-artist
+  color: #838BC2
+  margin-bottom: 0px
+  display: block
+
+.hr
+  margin-top: 5px
+  margin-bottom: 5px
