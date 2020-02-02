@@ -12,7 +12,7 @@ const weatherBody = document.querySelector('.weatherbody');
 const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const widgetBody = document.querySelector('.body3');
-const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
+const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&base=USD' + '&symbols=EUR,GBP,CAD';
 const musicApi = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=7475c75abe79ec1543d3587b1c852cdd&format=json';
 const geolocationApi = 'https://api.ipdata.co/?api-key=5ada641ee74885059907bcb7d03f99459aa7f97fffd9cdf8ab808406'
 var currencyBody;
@@ -24,12 +24,12 @@ var category = new Array('business', 'technology', 'entertainment', 'science', '
 
 var btn = document.querySelector('.button')
 
-var urlB = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=business&' + 'language=en&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-var urlT = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=technology&' + 'language=en&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-var urlE = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=entertainment&' + 'language=en&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-var urlS = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=science&' + 'language=en&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-var urlSp = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=sports&' + 'language=en&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-var urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=health&' + 'language=en&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+var urlB = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=business&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+var urlT = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=technology&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+var urlE = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=entertainment&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+var urlS = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=science&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+var urlSp = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=sports&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+var urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=health&' +  'apiKey=e1abb009438d41dcb85f13e77d61ed43';
 
 async function getData(url) {
     let response = await fetch(url);
