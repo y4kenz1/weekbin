@@ -14,6 +14,7 @@ const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 const widgetBody = document.querySelector('.body3');
 const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&symbols=USD,CAD,PLN';
 const musicApi = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=7475c75abe79ec1543d3587b1c852cdd&format=json';
+const geolocationApi = 'https://api.ipdata.co/?api-key=5ada641ee74885059907bcb7d03f99459aa7f97fffd9cdf8ab808406'
 var currencyBody;
 const dateBody = document.querySelector('.date');
 
@@ -420,8 +421,9 @@ function ajaxRequest(url, callback) {
     xhr.send();
 }
 
-navigator.geolocation.getCurrentPosition(function (position) {
-    var weatherApiGeo = weatherApi + 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=27c032c960d68469abac96a14e79efe2';
+ajaxRequest(geolocationApi, function (response) {
+    var weatherApiGeo = weatherApi + 'lat=' + response.latitude + '&lon=' + response.longitude + '&appid=27c032c960d68469abac96a14e79efe2';
+    
     ajaxRequest(weatherApiGeo, function (weather) {
         loadingW.style.display = "none";
         postWeather(weather);
