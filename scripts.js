@@ -280,6 +280,7 @@ function postNews(response, number) {
         const img = document.createElement('img');
         img.src = response.urlToImage;
         img.className = 'article-img';
+        img.setAttribute('alt', '.');
         div.appendChild(img);
     }
 
@@ -423,7 +424,7 @@ function ajaxRequest(url, callback) {
 
 ajaxRequest(geolocationApi, function (response) {
     var weatherApiGeo = weatherApi + 'lat=' + response.latitude + '&lon=' + response.longitude + '&appid=27c032c960d68469abac96a14e79efe2';
-    
+
     ajaxRequest(weatherApiGeo, function (weather) {
         loadingW.style.display = "none";
         postWeather(weather);
