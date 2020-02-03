@@ -297,16 +297,17 @@ function postNews(response, number) {
         description.className = 'article-description';
         div.appendChild(description);
     }
-
-    if (number === 1) {
-        news1Body.appendChild(div);
-        return news1Body;
-    } else if (number === 2) {
-        news2Body.appendChild(div);
-        return news2Body;
-    } else if (number === 3) {
-        news3Body.appendChild(div);
-        return news3Body;
+    if (response.source.name != 'Seekingalpha.com') {
+        if (number === 1) {
+            news1Body.appendChild(div);
+            return news1Body;
+        } else if (number === 2) {
+            news2Body.appendChild(div);
+            return news2Body;
+        } else if (number === 3) {
+            news3Body.appendChild(div);
+            return news3Body;
+        }
     }
 }
 
