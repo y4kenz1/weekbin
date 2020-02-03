@@ -4,15 +4,14 @@ const loadingC = document.querySelector('.loading-c');
 const news1Body = document.querySelector('.news1');
 const news2Body = document.querySelector('.news2');
 const news3Body = document.querySelector('.news3');
-// const NewsAPI = require('newsapi');
-// const newsapi = new NewsAPI('e1abb009438d41dcb85f13e77d61ed43');
+
 const nTitle = document.querySelector('.ntitle');
 
 const weatherBody = document.querySelector('.weatherbody');
 const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const widgetBody = document.querySelector('.body3');
-const currencyApi = 'http://data.fixer.io/api/latest?access_key=b6cc872dbfff7e279a6e5a6da73abb3b' + '&base=USD' + '&symbols=EUR,GBP,CAD';
+const currencyApi = 'https://api.exchangeratesapi.io/latest' + '?base=USD';
 const musicApi = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=7475c75abe79ec1543d3587b1c852cdd&format=json';
 const geolocationApi = 'https://api.ipdata.co/?api-key=5ada641ee74885059907bcb7d03f99459aa7f97fffd9cdf8ab808406'
 var currencyBody;
@@ -364,9 +363,10 @@ function getCurrency() {
         currencyBody.appendChild(arrow);
 
         var rates = Object.entries(currency.rates);
-        for (let i = 0; i < rates.length; i++) {
-            postCurrency(rates[i]);
-        }
+        postCurrency(rates[0]);
+        postCurrency(rates[7]);
+        postCurrency(rates[18]);
+
         widgetBody.appendChild(currencyBody);
     });
 }
