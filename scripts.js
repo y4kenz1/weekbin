@@ -33,6 +33,8 @@ var urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=h
 async function getData(url) {
     let response = await fetch(url);
     let data = await response.json()
+    console.log(data);
+    
     return data;
 }
 
@@ -297,7 +299,7 @@ function postNews(response, number) {
         description.className = 'article-description';
         div.appendChild(description);
     }
-    if (response.source.name != 'Seekingalpha.com') {
+    if (response.source.name != 'Seekingalpha.com' && response.source.name != 'Wolfstreet.com') {
         if (number === 1) {
             news1Body.appendChild(div);
             return news1Body;
