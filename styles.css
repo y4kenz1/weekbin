@@ -347,3 +347,21 @@ IMG {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.nasa-img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    /* margin-bottom: 5px; */
+}
+
+.nasa-title {
+    color: #333F63;
+    margin-bottom: 2px;
+    font-size: 17px;
+}
+
+.nasa-headline {
+    color: #715C8C;
+    font-size: 22px;
+}

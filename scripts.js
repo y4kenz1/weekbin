@@ -11,9 +11,12 @@ const weatherBody = document.querySelector('.weatherbody');
 const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const widgetBody = document.querySelector('.body3');
+
 const currencyApi = 'https://api.exchangeratesapi.io/latest' + '?base=USD';
 const musicApi = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=7475c75abe79ec1543d3587b1c852cdd&format=json';
 const geolocationApi = 'https://api.ipdata.co/?api-key=5ada641ee74885059907bcb7d03f99459aa7f97fffd9cdf8ab808406'
+const NASAApi = 'https://api.nasa.gov/planetary/apod?api_key=iDq6S8fa97TmvV7NWikXz0V9IGwKdqnb0MK3OC3m';
+
 var currencyBody;
 const dateBody = document.querySelector('.date');
 
@@ -189,6 +192,8 @@ document.getElementById("science").onclick = function () {
             news3Body.innerHTML = "";
             widgetBody.innerHTML = "";
             widgetBody.style.display = 'none';
+
+            getNASA();
 
             var n = response.articles.length / 3;
             n = Math.round(n);
@@ -411,6 +416,34 @@ function getMusic(params) {
         for (let i = 0; i < 10; i++) {
             postMusic(music.tracks.track[i]);
         }
+        return widgetBody;
+    });
+}
+
+function getNASA(params) {
+    widgetBody.style.display = 'block';
+    ajaxRequest(NASAApi, function (response) {
+        var headline = document.createElement('b');
+        headline.textContent = 'ASTRONOMY PICTURE OF THE DAY';
+        headline.className = 'nasa-headline';
+        widgetBody.appendChild(headline);
+
+        var a = document.createElement('a');
+        a.className = 'nasa-a';
+        a.setAttribute('href', response.hdurl);
+
+        var img = document.createElement('img');
+        img.src = response.url;
+        img.className = 'nasa-img';
+        img.setAttribute('alt', response.explanation);
+        a.appendChild(img);
+        widgetBody.appendChild(a);
+
+        var title = document.createElement('p');
+        title.textContent = response.title.toLowerCase();
+        title.className = 'nasa-title';
+        widgetBody.appendChild(title);
+        
         return widgetBody;
     });
 }
