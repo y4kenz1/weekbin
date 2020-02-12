@@ -1,23 +1,36 @@
 @font-face {
-    font-family: FontPro;
-    src: url(design/fonts/FETHEPROFESSIONAL-Regular.otf);
+    font-family: PTSerif;
+    src: url(design/fonts/PTSerif-Regular.ttf);
 }
 
 @font-face {
-    font-family: FontReg;
-    src: url(design/fonts/FEHero-Regular.otf);
+    font-family: PlayfairDisplay;
+    src: url(design/fonts/PlayfairDisplay-SemiBold.ttf);
 }
 
-/* * {
-    font-family: FontPro;
-} */
+@font-face {
+    font-family: GreatVibes;
+    src: url(design/fonts/PinyonScript-Regular.ttf);
+}
+
+* {
+    font-family: PTSerif;
+}
 
 A {
     text-decoration: none;
+
 }
 
 IMG {
     color: white;
+}
+
+.article-hr {
+    border: none;
+    height: 1px;
+    color: black;
+    background-color: black;
 }
 
 .titleimg {
@@ -29,8 +42,7 @@ IMG {
 }
 
 .title {
-    font-family: FontPro;
-    color: #715C8C;
+    font-family: PlayfairDisplay;
     font-size: 80px;
     line-height: 1.1;
     display: inline;
@@ -44,27 +56,28 @@ IMG {
 }
 
 .logo {
-    width: auto;
+    /* width: auto; */
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%; */
+    /* height: auto; */
     margin-top: 35px;
+    font-family: GreatVibes;
+    font-size: 10vw;
+    text-align: center;
+    margin-bottom: 0px;
 }
 
 .description {
-    font-family: FontPro;
-    color: #333F63;
+    font-family: PlayfairDisplay;
     text-align: center;
-    margin-top: 37px;
     font-size: 34px;
     margin-bottom: 0px;
 }
 
 .beta {
-    font-family: FontPro;
-    color: #838BC2;
+    font-family: PlayfairDisplay;
     text-align: center;
     margin-top: 0px;
     font-size: 15px;
@@ -72,12 +85,10 @@ IMG {
 }
 
 .article {
-    font-family: FontPro;
+    font-family: PlayfairDisplay;
     font-size: 14px;
     /* overflow: auto; */
     margin-bottom: 30px;
-    border-radius: 15px 15px 15px 15px;
-    border: 4px solid #333F63;
     /* padding: 4px; */
 }
 
@@ -86,25 +97,23 @@ IMG {
     height: 100%;
     display: inline-block;
     /* margin-bottom: 5px; */
-    border-radius: 10px 10px 0px 0px;
-
 }
 
 .article-title {
     margin: 5px;
     font-size: 22px;
-    color: #715C8C;
     display: inline-block;
+    font-family: PlayfairDisplay;
+    color: black;
 }
 
 .article-title:hover {
-    color: #715C8C;
-    border-bottom-color: rgba(51, 63, 99, 1);
+    color: black;
+    border-bottom-color: black;
 }
 
 .article-description {
     margin: 5px;
-    color: #838BC2;
     display: inline-block;
 }
 
@@ -126,12 +135,12 @@ IMG {
 
 .link,
 .links {
-    font-family: FontPro;
-    color: #333F63;
+    font-family: PlayfairDisplay;
     text-align: center;
     font-size: 28px;
     margin-top: 20px;
     margin-bottom: 10px;
+    color: black;
 }
 
 .row {
@@ -143,15 +152,14 @@ IMG {
 
 }
 
-.link:hover {
+/* .link:hover {
     color: #715C8C;
     border-bottom-color: rgb(113, 92, 140, 1);
     transition: 0.5s;
-}
+} */
 
 
 .currency-main {
-    color: #333F63;
     font-size: 40px;
     margin-bottom: 0px;
     display: block;
@@ -159,7 +167,6 @@ IMG {
 }
 
 .currency-rate {
-    color: #838BC2;
     font-size: 25px;
     display: block;
 }
@@ -170,17 +177,12 @@ IMG {
 
 .weatherbody,
 .body3 {
-    font-family: FontPro;
-    border-radius: 15px 15px 15px 15px;
-    border: 4px solid #333F63;
-    /* border-image-source: repeating-radial-gradient(#715C8C, #333F63);
-    border-image-slice: 1; */
+    font-family: PlayfairDisplay;
     text-align: center;
     margin-bottom: 30px;
 }
 
 .weather-city {
-    color: #333F63;
     font-size: 35px;
     display: block;
     margin-top: 10px;
@@ -190,14 +192,12 @@ IMG {
     font-size: 25px;
     display: block;
     margin-bottom: 10px;
-    color: #838BC2;
 }
 
 .weather-temp {
     /* background: -webkit-linear-gradient(#fdbb2d, #fc5c7d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
-    color: #715C8C;
     font-size: 40px;
     margin-bottom: 0px;
 }
@@ -221,7 +221,6 @@ IMG {
 .loading {
     display: inline-block;
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #715C8C;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -244,9 +243,6 @@ IMG {
 .button {
     margin-left: 5px;
     margin-bottom: 17px;
-    /* background: -webkit-linear-gradient(#715C8C, #333F63); */
-    background: #333F63;
-    color: white;
     padding: 5px 15px;
     border: 0 none;
     border-radius: 10px;
@@ -265,33 +261,16 @@ IMG {
     position: relative;
 }
 
-.button::before {
-    --size: 0;
-    content: '';
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    width: var(--size);
-    height: var(--size);
-    background: radial-gradient(circle closest-side, #838BC2, transparent);
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease;
-}
-
-.button:hover::before {
-    --size: 200px;
-}
 
 .date {
-    font-family: FontPro;
+    font-family: PlayfairDisplay;
     font-size: 22px;
     /* margin-bottom: 0px; */
-    color: #838BC2;
     text-align: center;
 }
 
 .btns {
-    font-family: FontPro;
+    font-family: PlayfairDisplay;
     text-align: center;
 }
 
@@ -299,19 +278,17 @@ IMG {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 10px;
-    color: #838BC2;
     text-decoration: none;
 }
 
 .api {
     margin-bottom: 1px;
     text-decoration: none;
-    color: #838BC2;
 }
 
-.api:hover {
+/* .api:hover {
     color: #838BC2;
-}
+} */
 
 .music {
     text-align: left;
@@ -320,25 +297,24 @@ IMG {
 }
 
 .music-headline {
-    color: #715C8C;
     font-size: 25px;
     margin-bottom: 10px;
     margin-top: 10px;
     display: block;
+    
 }
 
 .music-name {
-    color: #333F63;
+    color: black;
 }
 
 .music-name:hover {
-    color: #715C8C;
-    border-bottom-color: rgb(113, 92, 140, 1);
+    color: black;
+    border-bottom-color: black;
     transition: 0.5s;
 }
 
 .music-artist {
-    color: #838BC2;
     margin-bottom: 0px;
     display: block;
 }
@@ -356,12 +332,12 @@ IMG {
 }
 
 .nasa-title {
-    color: #333F63;
+    /* color: #333F63; */
     margin-bottom: 2px;
     font-size: 17px;
 }
 
 .nasa-headline {
-    color: #715C8C;
+    /* color: #715C8C; */
     font-size: 22px;
 }

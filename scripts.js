@@ -300,10 +300,15 @@ function postNews(response, number) {
 
     if (response.description != null) {
         const description = document.createElement('p');
-        description.textContent = response.description.toLowerCase();
+        description.textContent = response.description;
         description.className = 'article-description';
         div.appendChild(description);
     }
+
+    const hr = document.createElement('hr');
+    hr.className = 'article-hr';
+    div.appendChild(hr);
+
     if (response.source.name != 'Seekingalpha.com' && response.source.name != 'Wolfstreet.com') {
         if (number === 1) {
             news1Body.appendChild(div);
@@ -337,10 +342,14 @@ function postWeather(weather) {
     temp.textContent = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4) + ' °F';
     temp.className = 'weather-temp';
 
+    const hr = document.createElement('hr');
+    hr.className = 'article-hr';
+
     weatherBody.appendChild(city);
     // weatherBody.appendChild(icon);
     weatherBody.appendChild(temp);
     weatherBody.appendChild(main);
+    weatherBody.appendChild(hr);
 
     return weatherBody;
 }
@@ -374,6 +383,11 @@ function getCurrency() {
         postCurrency(rates[0]);
         postCurrency(rates[7]);
         postCurrency(rates[18]);
+
+        const hr = document.createElement('hr');
+        hr.className = 'article-hr';
+
+        currencyBody.appendChild(hr);
 
         widgetBody.appendChild(currencyBody);
     });
@@ -443,7 +457,11 @@ function getNASA(params) {
         title.textContent = response.title.toLowerCase();
         title.className = 'nasa-title';
         widgetBody.appendChild(title);
-        
+
+        const hr = document.createElement('hr');
+        hr.className = 'article-hr';
+        widgetBody.appendChild(hr);
+
         return widgetBody;
     });
 }
