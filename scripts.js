@@ -479,17 +479,16 @@ function ajaxRequest(url, callback) {
 ajaxRequest(geolocationApi, function (response) {
     var weatherApiGeo = weatherApi + 'lat=' + response.latitude + '&lon=' + response.longitude + '&appid=27c032c960d68469abac96a14e79efe2';
 
-    if (response.country_code == 'RU') {
-        var ccode = 'ru';
-        urlB = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=business&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-        urlT = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=technology&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-        urlE = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=entertainment&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-        urlS = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=science&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-        urlSp = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=sports&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
-        urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=health&' +  'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    var ccode = response.country_code.toLowerCase();
+    urlB = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=business&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    urlT = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=technology&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    urlE = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=entertainment&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    urlS = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=science&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    urlSp = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=sports&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=health&' +  'apiKey=e1abb009438d41dcb85f13e77d61ed43';
 
-        getData(urlB)
-            .then(response => {
+    getData(urlB)
+        .then(response => {
         news1Body.innerHTML = "";
         news2Body.innerHTML = "";
         news3Body.innerHTML = "";
@@ -516,8 +515,7 @@ ajaxRequest(geolocationApi, function (response) {
                 postNews(response.articles[i], 3);
             }
         }
-        });
-    }
+    });
 
     ajaxRequest(weatherApiGeo, function (weather) {
         loadingW.style.display = "none";
