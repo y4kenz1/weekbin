@@ -255,6 +255,7 @@ IMG {
     cursor: pointer;
     outline: none;
     overflow: hidden;
+    background-color: #eeeeee;
 }
 
 .button span {
