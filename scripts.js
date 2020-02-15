@@ -335,11 +335,22 @@ function postWeather(weather) {
     // const icon = document.createElement('img');
     // icon.setAttribute('src', 'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png');
     // icon.className = 'weather-icon';
-
-    const tempF = 9 / 5 * (weather.main.temp - 273) + 32;
-
+    
     const temp = document.createElement('p');
-    temp.textContent = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4) + ' °F';
+    if (weather.sys.country == 'US') {
+        var tempF = 9 / 5 * (weather.main.temp - 273) + 32;
+        temp.textContent = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4) + ' °F';
+    } else {
+        var tempF = weather.main.temp - 273;
+        tempF = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4);
+        console.log(tempF);
+
+        if (tempF == '-0') {
+            tempF = 0;
+        }
+        temp.textContent = tempF + ' °C';
+    }
+
     temp.className = 'weather-temp';
 
     const hr = document.createElement('hr');
@@ -355,6 +366,8 @@ function postWeather(weather) {
 }
 
 function postCurrency(rates) {
+    console.log('f');
+    
     const cur = document.createElement('p');
     cur.textContent = rates[0] + ': ' + rates[1];
     cur.className = 'currency-rate';
@@ -486,6 +499,8 @@ ajaxRequest(geolocationApi, function (response) {
     urlS = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=science&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
     urlSp = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=sports&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
     urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=health&' +  'apiKey=e1abb009438d41dcb85f13e77d61ed43';
+    
+    widgetBody.innerHTML = "";
 
     getData(urlB)
         .then(response => {
