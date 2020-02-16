@@ -342,7 +342,7 @@ function postWeather(weather) {
         temp.textContent = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4) + ' °F';
     } else {
         var tempF = weather.main.temp - 273;
-        tempF = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 4);
+        tempF = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 5);
         console.log(tempF);
 
         if (tempF == '-0') {
