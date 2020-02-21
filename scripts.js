@@ -36,7 +36,6 @@ var urlH = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'category=h
 async function getData(url) {
     let response = await fetch(url);
     let data = await response.json()
-    console.log(data);
     
     return data;
 }
@@ -343,7 +342,6 @@ function postWeather(weather) {
     } else {
         var tempF = weather.main.temp - 273;
         tempF = tempF.toString().toUpperCase().substring(0, weather.main.temp.toString().length - 5);
-        console.log(tempF);
 
         if (tempF == '-0') {
             tempF = 0;
@@ -366,7 +364,6 @@ function postWeather(weather) {
 }
 
 function postCurrency(rates) {
-    console.log('f');
     
     const cur = document.createElement('p');
     cur.textContent = rates[0] + ': ' + rates[1];
@@ -493,6 +490,10 @@ ajaxRequest(geolocationApi, function (response) {
     var weatherApiGeo = weatherApi + 'lat=' + response.latitude + '&lon=' + response.longitude + '&appid=27c032c960d68469abac96a14e79efe2';
 
     var ccode = response.country_code.toLowerCase();
+    if (ccode == 'by') {
+        ccode = 'us';
+    }
+
     urlB = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=business&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
     urlT = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=technology&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
     urlE = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=entertainment&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
