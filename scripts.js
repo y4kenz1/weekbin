@@ -490,8 +490,13 @@ ajaxRequest(geolocationApi, function (response) {
     var weatherApiGeo = weatherApi + 'lat=' + response.latitude + '&lon=' + response.longitude + '&appid=27c032c960d68469abac96a14e79efe2';
 
     var ccode = response.country_code.toLowerCase();
-    if (ccode == 'by') {
-        ccode = 'us';
+
+    var countries = ['ar', 'au', 'at', 'be', 'br', 'bg', 'ca', 'cn', 'co', 'cu', 'cz', 'eg', 'fr', 'de', 'gr', 'hk', 'hu', 'in', 'id', 'ie', 'il', 'it', 'jp', 'lv', 'lt', 'my', 'mx', 'ma', 'nl', 'nz', 'ng', 'no', 'ph', 'pl', 'pt', 'ro', 'ru', 'sa', 'rs', 'sg', 'sk', 'si', 'za', 'kr', 'se', 'ch', 'tw', 'th', 'tr', 'ae', 'ua', 'gb', 'us', 've'];
+    
+    for (let i = 0; i < countries.length; i++) {
+        if (ccode != countries[i]) {
+            ccode = 'us';
+        }
     }
 
     urlB = 'https://newsapi.org/v2/top-headlines?' + 'country=' + ccode + '&category=business&' + 'apiKey=e1abb009438d41dcb85f13e77d61ed43';
