@@ -65,8 +65,10 @@ getData(urlB)
 
         getCurrency();
 
-        var n = response.articles.length / 3;
-        n = Math.round(n);
+        if (response.articles != undefined) {
+            var n = response.articles.length / 3;
+            n = Math.round(n);    
+        }
 
         for (let i = 0; i < n; i++) {
             if (response.articles[i] != undefined) {
